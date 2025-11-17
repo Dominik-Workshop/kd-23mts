@@ -3,14 +3,13 @@
 ![Microcontroller](https://img.shields.io/badge/Board-NUCLEO_L476RG-white) 
 ![Platform](https://img.shields.io/badge/Platform-STM32cubeIDE_1.4.0-darkcyan)
 
-This project is a simple oscilloscope built using an STML476RG microcontroller and a 4" TFT SPI 480x320px V2.1 LCD with an integrated ILI9488 driver and touchscreen with an XPT2046 driver. It was developed for the Robot Controllers project during the 6th semester of AiR at PWR.
-
-
+This project is a simple oscilloscope built using an **STML476RG** microcontroller and a 4" TFT SPI 480x320px V2.1 LCD with an integrated **ILI9488** driver and touchscreen with an **XPT2046** driver. It was developed for the Robot Controllers project during the 6th semester of AiR at PWR.
 
 <img align="center" src="images/photos/curosrs_time.jpg">
 <img align="center" src="images/photos/fft_squarewave.jpg">
 
 ## Project Goals
+
   - 2 channels
   - FFT (Fast Fourier Transform)
   - RMS, peak-to-peak, and frequency measurements
@@ -29,7 +28,6 @@ This project is a simple oscilloscope built using an STML476RG microcontroller a
   | PC4     | DC/RS         | TFT_DC/RS          |
   | PA10    | RESET         | TFT_RESET          |
   | PC8     | CS            | TFT_CS             |
-
 
 - Touchscreen
   | STM pin | Component pin | Signal description |
@@ -53,27 +51,33 @@ This project is a simple oscilloscope built using an STML476RG microcontroller a
   | PC5     | BNC connector 1 | Channel 1          |
   | PB1     | BNC connector 2 | Channel 2          |
 
-
 - Test signal output
   | STM pin | Component pin     | Signal description |
   |---------|-------------------|--------------------|
   | PB0     | GEN OUT connector | 1kHz test signal   |
 
 ## Touchscreen calibration
+
 1. Navigate to the file `oscilloscope.c` and locate line 35. Remove the comment slashes (`//`) to activate the function `touchScreenCalibration();`. Save the changes and upload the code to the device.
+
 2. Open a Serial monitor on your PC. You should observe the following prompt:
-    ```
+
+    ``` txt
     Press the screen at the yellow squares that appear,
     then paste the following line into stm32_adafruit_ts.h :
     ```
+
 3. Interact with the LCD screen by pressing on the three yellow squares. Upon completion, the calibration values will be displayed. For example:
-    ```
+
+    ``` C
     #define  TS_CINDEX            {1777297, 4469, -237569, 908499464, -171651, 9601, 587895710}
     ```
+
 4. Follow the instructions provided in the previous step by copying and pasting the displayed line into the file stm32_adafruit_ts.h. After pasting, comment out line 35 in `oscilloscope.c`, and re-upload the modified code to the device.
 
-## Used tools: 
-<img align="center" height="64" src="images/logos/STM32CubeIDE.png">
+## Used Tools
+
+- [STM32CubeIDE](https://www.st.com/en/development-tools/stm32cubeide.html) - STM32 firmware development (build/flash/debug)
 
 ## Used Libraries
 
@@ -82,8 +86,8 @@ This project is a simple oscilloscope built using an STML476RG microcontroller a
 
 (No need to install any libraries; the appropriate files are included in the project.)
 
+## Authors
 
-## Authors:
 - [**Dominik Pluta**](https://github.com/Dominik-Workshop)
 - [**Kamil Winnicki**](https://github.com/KamilWuu)
 
